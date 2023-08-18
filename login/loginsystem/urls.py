@@ -4,5 +4,5 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.getLogin),
-    # path('post/', views.postFood),
+    path('signup/', views.postRegisterUser),
 ]

@@ -1,2 +1,100 @@
 # login-system
-A simple login system. If the user has not yet a login account, he has to sign up, then log in with the created account. The project uses Django Framework.
+## A simple login system. If the user has not yet a login account, he has to sign up, then log in with the created account. The project uses Django Framework.
+
+# FOR A WINDOWS OPERATING SYSTEM
+
+***
+
+## A. Setting up development environnment
+
+### 1. Check python version:
+
+```
+py --version
+```
+
+### 2. Check pip version 
+
+```
+py -m pip --version
+```
+
+While PIP doesn’t update often, it’s still important to stay on top of new versions for bug fixes, security fixes, and compatibility. 
+To check for any upgrades, type in:
+
+```
+py -m pip install --upgrade
+```
+
+### 3. Install Django 
+
+```
+py -m pip install Django
+```
+
+### 4. Install Django-Rest-Framework
+
+```
+py -m pip install djangorestframework
+```
+
+## B. Execute project
+
+### 1. In windows command propmt, go inside the project root directory and type
+
+```
+cd login 
+py manage.py runserver
+```
+
+### 2. Open a browser and type:
+
+[https://127.0.0.1:8000/](https://127.0.0.1:8000/)
+
+Add new data with the `url`, then add data (In json format) and click on `post`
+
+[https://127.0.0.1:8000/signup](https://127.0.0.1:8000/signup)
+
+## C. To create a new fresh Django website (API)
+
+### 1. Create a Django project
+
+```
+django-admin startproject login
+```
+
+`login` is the project name.
+
+### 2. Create Django app
+
+```
+django-admin startapp loginsystem
+```
+
+`loginsystem` is the working Django App.
+
+### 3. Make migration to prepare the database schema
+
+Move inside the root project by typing `cd login` from the root dir.
+
+```
+python manage.py makemigrations loginsystem
+```
+
+`loginsystem` is the working Django App. 
+
+### 4. Create the database
+
+```
+python manage.py migrate
+```
+
+This command will create a SQLite database inside the root module.
+
+
+
+
+
+```
+py -m pip install django-cors-headers
+```
