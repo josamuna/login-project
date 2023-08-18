@@ -57,11 +57,12 @@ py manage.py runserver
 
 ### 2. Open a browser and type:
 
-[https://127.0.0.1:8000/api](https://127.0.0.1:8000/api)
-
-Add new data with the `url`, then add data (In json format) and click on `post`
-
-[https://127.0.0.1:8000/signup](https://127.0.0.1:8000/signup)
+- To Get all data       : [https://127.0.0.1:8000/api/loginsystem/](https://127.0.0.1:8000/api/loginsystem).
+- To add new User       : [https://127.0.0.1:8000/api/loginsystem/signup/](https://127.0.0.1:8000/api/loginsystem/signup/).
+- To edit User (Update) : [https://127.0.0.1:8000/api/loginsystem/1](https://127.0.0.1:8000/api/loginsystem/1).
+  Where `1` is the `userid` and it is mandatory, that mean user info on the specified id.
+- To delete User      : [https://127.0.0.1:8000/api/loginsystem/1](https://127.0.0.1:8000/api/loginsystem/1).
+  Where `1` is the `userid` and it is mandatory, that mean user info on the specified id.
 
 ## C. Execute the frontend
 
