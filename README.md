@@ -38,6 +38,14 @@ py -m pip install Django
 py -m pip install djangorestframework
 ```
 
+### 5. Install Django-Cors-Headers 
+To be able to link our `API` with the `Frontend`, we have to install the corsheaders module:
+
+```
+py -m pip install django-cors-headers
+```
+Then, edit the `login-project\login\login\settings.py` file with Application, Middleware, Trust link (From Frontend) and permission.  
+
 ## B. Execute project
 
 ### 1. In windows command propmt, go inside the project root directory and type
@@ -49,13 +57,31 @@ py manage.py runserver
 
 ### 2. Open a browser and type:
 
-[https://127.0.0.1:8000/](https://127.0.0.1:8000/)
+[https://127.0.0.1:8000/api](https://127.0.0.1:8000/api)
 
 Add new data with the `url`, then add data (In json format) and click on `post`
 
 [https://127.0.0.1:8000/signup](https://127.0.0.1:8000/signup)
 
-## C. To create a new fresh Django website (API)
+## C. Execute the frontend
+
+### 1. Go inside the frontend project
+
+```
+cd login-project
+cd FrontendApp
+npm install
+```
+
+### 2. Start React project
+
+```
+npm start
+```
+
+> Finally everything will be handled from the UI Frontend web App (`React`). 
+
+## D. To create a new fresh Django website (API)
 
 ### 1. Create a Django project
 
@@ -90,11 +116,3 @@ python manage.py migrate
 ```
 
 This command will create a SQLite database inside the root module.
-
-
-
-
-
-```
-py -m pip install django-cors-headers
-```
