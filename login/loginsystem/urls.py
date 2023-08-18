@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.getLogin),
-    path('signup/', views.postRegisterUser),
+    path('', views.getLogins),
+    path('signup/', views.addUser),
+    path('<int:pk>/', views.login_detail),
 ]

@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-6um-j-0ykl$5wxsgse79$col9dhvowikx7!6&ixxjf5p46_n_l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_CREDENTIALS = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -55,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000', # Django backend
     'http://localhost:3000', # React frontend
     'https://127.0.0.1:3000', # React frontend
 ]

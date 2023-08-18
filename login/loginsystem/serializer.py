@@ -4,4 +4,4 @@ from .models import Login
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model=Login
-        fields=('fullname','username','email','password',)
+        fields=('id', 'fullname','username','email','password',)
