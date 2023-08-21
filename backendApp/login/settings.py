@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6um-j-0ykl$5wxsgse79$col9dhvowikx7!6&ixxjf5p46_n_l
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 
@@ -56,22 +56,19 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000', # Django backend
+CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000', # React frontend
     'https://127.0.0.1:3000', # React frontend
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost',
-    'http://127.0.0.1',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
         # 'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    #  'DEFAULT_AUTHENTICATION_CLASSES': [
+    #      'rest_framework.authentication.SessionAuthentication',
+    #  ],
 }
 
 ROOT_URLCONF = 'login.urls'
@@ -104,6 +101,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# User model
+# AUTH_USER_MODEL = 'loginsystem.Login'
 
 
 # Password validation
@@ -146,3 +146,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+APPEND_SLASH = 'False'

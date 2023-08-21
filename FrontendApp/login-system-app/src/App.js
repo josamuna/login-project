@@ -1,21 +1,22 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import  Axios from 'axios';
 import './App.css';
+import {Table} from 'reactstrap';
+import {NotificationContainer, NotificationManager} from 'react-notifications'
 
 function App() {
-  const [data, setData] = useState([]);
-  const url_get = "http://127.0.0.1:8000/api/loginsystem";
+  const [userData, setUserData] = useState([]);
+  const url_get = "http://127.0.0.1:8000/api/loginsystem/";
   
-  // Fetch data from Django api using his url 
+  // Fetch data from Django api using an expected url 
   const fetchDataFromApi = async(url_get)=>{
     try{
-      const response = await fetch(url_get);
-      const valueResponse = await response.json();
-      console.log("Response is ", valueResponse);
-      const data = valueResponse;
-      setData(data);
-      console.log("=============>>>", data[0].fullname);
+      const response = await Axios.get(url_get);
+      console.log('Response is :', response.data);
+      setUserData(response.data);
     }catch(error){
-      console.log(`Something went wrong:${error}`);
+      console.log(`Something went wrong:${ error }`);
+      NotificationManager.warning('Failed to load data!', 'Loading Data', 6000);
     }    
   }
 
@@ -27,16 +28,30 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-        {data.map(item=>{
-            <div key={item.id}>              
-              <h1>{item.fullname}</h1>
-              <p>{item.username}</p>
-              <p>{item.email}</p>
-              <p>{item.password}</p>
-            </div>
-          })}
-        </div>
-        
+          <Table>
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            {userData.map((item)=>{
+              return(
+                <tbody key={item.id}>
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <td>{item.fullname}</td>
+                      <td>{item.email}</td>
+                      <td>{item.password}</td>
+                    </tr>
+                </tbody>
+              )
+            })}
+          </Table>
+        </div> 
+        <NotificationContainer />       
       </header>
     </div>
   );
